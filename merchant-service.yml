@@ -7,3 +7,6 @@ spring:
 
 jwt:
   secret-key: only-for-dev-env-fduagsdiudiuadiuasiduavsduvu67etdhguhd9w8rdyw98fhoishncfijfdc90njsc
+
+webhook:
+  secret-encryption-key: 4wH50N/hWWWT4MUPex7vdYg3LVG55Y/j0BiM1eqSDCM=
