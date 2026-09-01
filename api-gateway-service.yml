@@ -7,7 +7,7 @@ app:
     public-routes:
       - "/v1/auth/**"
       - "/webhook/**"
-      - "actuator/**"
+      - "/actuator/**"
 
   rate-limit:
     method: fixed
