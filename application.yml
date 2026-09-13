@@ -10,6 +10,8 @@ spring:
       hibernate:
         format_sql: true
   datasource:
+    hikari:
+      maximum-pool-size: 50
     username: root
     password: root
   data:
