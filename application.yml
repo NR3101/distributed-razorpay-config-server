@@ -45,10 +45,20 @@ management:
       application: ${spring.application.name}
   tracing:
     sampling:
-      probability: 1.0
+      probability: 0.1
     export:
       zipkin:
         endpoint: http://localhost:9411/api/v2/spans
+
+feign:
+  httpclient:
+    hc5:
+      enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
 
 eureka:
   client:
@@ -62,6 +72,9 @@ logging:
   level:
     org.apache.kafka.clients: WARN
     org.apache.kafka.common: WARN
+    zipkin2.reporter: DEBUG
+    org.springframework.boot.zipkin: DEBUG
+    io.micrometer.tracing: DEBUG
 
 app:
   kafka:
@@ -70,8 +83,6 @@ app:
       order: orders.events
       refund: refund.events
       settlement: settlement.events
-
----
 
 ---
 
@@ -88,6 +99,10 @@ spring:
   cloud:
     discovery:
       enabled: false
+  task:
+    scheduling:
+      pool:
+        size: 4
 
 eureka:
   client:
